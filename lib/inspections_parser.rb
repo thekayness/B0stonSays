@@ -2,7 +2,7 @@ require 'soda/client'
 
 class InspectionsParser
 		
-	@@client = SODA::Client.new({:domain => "data.cityofboston.gov", :app_token => ""})
+	@@client = SODA::Client.new({:domain => "data.cityofboston.gov", :app_token => :secret_token})
 
 	def self.parse
 		self.new.call

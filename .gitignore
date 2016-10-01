@@ -20,4 +20,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+<<<<<<< Updated upstream
 .gitconfig
+=======
+# Ignore secrets.yml
+./config/secrets.yml
+>>>>>>> Stashed changes
