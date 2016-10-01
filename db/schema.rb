@@ -13,12 +13,14 @@
 ActiveRecord::Schema.define(version: 20161001160234) do
 
   create_table "reports", force: :cascade do |t|
+    t.integer "restaurant_id"
     t.string  "status"
     t.string  "level"
     t.text    "description"
     t.string  "comments"
     t.string  "date"
     t.integer "license"
+    t.index ["restaurant_id"], name: "index_reports_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|

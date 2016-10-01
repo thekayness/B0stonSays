@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<!--
+	Tessellate by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Don't Puke</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre:400,700" rel="stylesheet"> 
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="show-header" class="dark">
+				<header>
+				<img src="images/dontpukelogo.png" alt="Dont Puke Logo" />
+					<h1>Don't Puke!</h1>
+					<p>Find before you dine</p>
+  					<div class="container-1">
+     				 <span class="icon"><i class="fa fa-search"></i></span>
+      					<input type="search" id="search" placeholder="Search Restaurants..." />
+ 					</div>
+				</header>
+			</section>
+<h3><%=@restaurant.name%></h3>
+<p><%=@restaurant.address%></p>
+<p><%=@restaurant.status%></p>
+<p><%=@restaurant.license%></p>
+
+<ol>
+<%@restaurant.reports.each do |report|%>
+<li><%=report.status%></li>
+<li><%=report.description%></li>
+<li><%=report.comments%></li>
+<li><%=report.date%></li>
+<%end%>
+</ol>
+<section id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<div class="copyright">
+					<ul class="menu">
+						<li>SharkHack2016</li><li>Design: <a href="http://html5up.net">Crocodile Sharks</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

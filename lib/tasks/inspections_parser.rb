@@ -12,8 +12,8 @@ class InspectionsParser
 		get_everything
 	end
 
-	def 
-		results = @@client.get("427a-3cn5", :$limit => )
+	def get_everything
+		results = @@client.get("427a-3cn5", :$limit => 500000)
 		#go get stuff we want
 		results.each do |result|
 			restaurant = Restaurant.find_or_create_by(name: result.businessname)
