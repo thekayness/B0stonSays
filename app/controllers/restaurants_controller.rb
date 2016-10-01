@@ -10,6 +10,11 @@ class RestaurantsController < ApplicationController
 
   	def find
   		@restaurant = Restaurant.find(1)
-  		redirect_to restaurant_show_path
+  		render show.html.erb
+  	end
+
+  	def create
+  		@restaurant = Restaurant.find(1)
+  		render show.html.erb
   	end
 end
