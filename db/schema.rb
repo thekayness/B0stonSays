@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20161001133240) do
     t.string  "status"
     t.integer "license"
     t.string  "location"
+
+  create_table "reports", force: :cascade do |t|
+    t.string "status"
+    t.string "level"
+    t.text   "description"
+    t.string "comments"
+    t.string "date"
   end
 
 end
