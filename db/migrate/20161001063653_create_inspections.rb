@@ -1,4 +1,4 @@
-class CreateReports < ActiveRecord::Migration[5.0]
+class CreateInspections < ActiveRecord::Migration[5.0]
   def change
     create_table :inspections do |t|
       t.string :lic_issue_date
@@ -11,7 +11,7 @@ class CreateReports < ActiveRecord::Migration[5.0]
       t.string :comments
       t.string :viol_date
     end
-    add_index :reports, :license
+    add_index :inspections, :license
   end
 
   

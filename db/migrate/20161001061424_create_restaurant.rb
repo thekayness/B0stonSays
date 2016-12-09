@@ -4,7 +4,7 @@ class CreateRestaurant < ActiveRecord::Migration[5.0]
     	t.string :name
     	t.string :type
     	t.string :address
-    	t.string :status, default: nil
+    	t.string :lic_status
     	t.integer :license
     end
   end
