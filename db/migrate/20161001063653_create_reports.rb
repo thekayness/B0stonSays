@@ -1,12 +1,18 @@
 class CreateReports < ActiveRecord::Migration[5.0]
   def change
-    create_table :reports do |t|
-    	t.belongs_to :restaurant, index: true
-      t.string :status
-      t.string :level
-      t.text :description
+    create_table :inspections do |t|
+      t.string :lic_issue_date
+      t.string :lic_exp_date
+      t.string :result
+      t.string :result_date
+      t.string :viol_code
+      t.string :viol_level
+      t.text :viol_desc
       t.string :comments
-      t.string :date
+      t.string :viol_date
     end
+    add_index :reports, :license
   end
+
+  
 end

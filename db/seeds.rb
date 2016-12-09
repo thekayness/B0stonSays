@@ -21,3 +21,10 @@
 
 # 	restaurant.save
 # end
+
+require 'csv'
+
+CSV.foreach('../Food_Establishment_Inspections.csv', :headers => true) do |row|
+  record = row.to_hash
+  puts "#{record['LICENSENO']}"
+end
