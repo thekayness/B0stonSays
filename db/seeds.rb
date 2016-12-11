@@ -24,7 +24,20 @@
 
 require 'csv'
 
-CSV.foreach('../Food_Establishment_Inspections.csv', :headers => true) do |row|
-  record = row.to_hash
-  puts "#{record['LICENSENO']}"
+CSV.foreach('../Food_Establishment_Inspections.csv', :headers => true) do |record|
+
+	restaurant = Restaurant.find_or_create_by(license_no: record[5]) do |restaurant|
+		restaurant.address = record[20]
+		restaurant.city = record[21]
+		restaurant.vendor_type = record[10]
+		restaurant.name = record[0]
+		restaurant.lic_status = record[8]
+		restaurant.location = record[25]
+	end
+	
+	inspection = Inspection.create(license_no: record[5], lic_issue_date: record[6], lic_exp_date: record[7], result: record[11], result_date: record[12], viol_code: record[13], viol_level: record[14], viol_desc: record[15], comments: record[19], viol_date: record[16])
+	
+	restaurant.inspections << inspection
+	inspection.save
+	restaurant.save
 end

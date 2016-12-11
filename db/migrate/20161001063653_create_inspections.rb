@@ -1,6 +1,7 @@
 class CreateInspections < ActiveRecord::Migration[5.0]
   def change
     create_table :inspections do |t|
+      t.string :license_no
       t.string :lic_issue_date
       t.string :lic_exp_date
       t.string :result
@@ -11,7 +12,6 @@ class CreateInspections < ActiveRecord::Migration[5.0]
       t.string :comments
       t.string :viol_date
     end
-    add_index :inspections, :license
   end
 
   
