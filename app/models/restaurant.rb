@@ -12,4 +12,9 @@ class Restaurant < ActiveRecord::Base
 			[address.squeeze(" "), city, state].compact.join(', ')
 		end
 	end
+
+	def self.search(search_terms)
+		where("name LIKE?", "%#{search_terms}%")
+	end
+
 end
