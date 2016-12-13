@@ -33,6 +33,7 @@ gem 'soda-ruby', :require => 'soda'
 
 gem 'active_model_serializers'
 gem 'geocoder'
+gem 'ngannotate-rails'
 
 
 group :development, :test do
