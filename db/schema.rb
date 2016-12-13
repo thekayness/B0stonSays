@@ -12,6 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20161001063653) do
 
+  create_table "_alter0_restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "vendor_type"
+    t.string "address"
+    t.string "city"
+    t.string "lic_status"
+    t.string "license_no"
+    t.string "location"
+  end
+
+  create_table "_alter1_restaurants", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.string  "name"
+    t.string  "vendor_type"
+    t.string  "address"
+    t.string  "city"
+    t.string  "lic_status"
+    t.string  "license_no"
+    t.string  "location"
+  end
+
   create_table "inspections", force: :cascade do |t|
     t.integer "restaurant_id"
     t.string  "license_no"
@@ -35,6 +56,9 @@ ActiveRecord::Schema.define(version: 20161001063653) do
     t.string "lic_status"
     t.string "license_no"
     t.string "location"
+    t.       "longitude"
+    t.text   "state",       default: "MA"
+    t.       "latitude"
   end
 
 end
