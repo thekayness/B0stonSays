@@ -35,6 +35,7 @@ gem 'active_model_serializers'
 gem 'geocoder'
 gem 'ngannotate-rails'
 gem 'angular-rails-templates'
+gem 'kaminari'
 
 
 group :development, :test do
