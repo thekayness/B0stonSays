@@ -1,0 +1,19 @@
+{
+  "name": "dontpuke",
+  "homepage": "https://github.com/thekayness/dontpuke",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-ui-router": "^0.3.2",
+    "bootstrap": "^3.3.7"
+  }
+}
