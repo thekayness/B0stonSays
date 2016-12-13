@@ -1,4 +1,4 @@
-angular.module('dontPuke', [])
+angular.module('dontPuke', ['ui.router', 'templates'])
 	.controller ('MainCtrl', [
 		'$scope',
 		function($scope) {

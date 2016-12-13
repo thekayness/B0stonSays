@@ -34,6 +34,7 @@ gem 'soda-ruby', :require => 'soda'
 gem 'active_model_serializers'
 gem 'geocoder'
 gem 'ngannotate-rails'
+gem 'angular-rails-templates'
 
 
 group :development, :test do
