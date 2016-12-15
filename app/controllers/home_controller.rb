@@ -1,9 +1,19 @@
 class HomeController < ApplicationController
-	
+
   def index
   end
 
   def search_near
+  end
+
+  def search_name
+  	@restaurants = Restaurant.find_by_name(params[:name])
+    render json: @restaurants
+  end
+
+  def search_address
+    @restaurants = Restaurant.near(params[:address], 0.5)
+    render json: @restaurants
   end
 
   def restaurant_params

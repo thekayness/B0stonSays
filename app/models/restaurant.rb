@@ -13,7 +13,7 @@ class Restaurant < ActiveRecord::Base
 		end
 	end
 
-	def self.search(search_terms)
+	def self.find_by_name(search_terms)
 		where("name LIKE?", "%#{search_terms}%")
 	end
 

@@ -1,27 +1,31 @@
 
 <div class="page-header">
-	<h1>Flapper News</h1>
+	<h1>Don't Puke</h1>
 </div>
-<span>
-	<a href="#/posts{{index}}">Comments</a>	
-</span>
-<div ng-repeat="post in posts | orderBy: '-upvotes'">
-	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-	{{post.upvotes}}
+
+<form ng-submit="searchName()" style="margin-top:30px;">
+	<h3>Search By Name</h3>
+	<div class="form-group">
+		<input type="text" placeholder="name" ng-model="name" class="form-control">
+	</div>
+	<button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+<form ng-submit="searchAddress()" style="margin-top:30px;">
+	<h3>Search Near Address</h3>
+	<div class="form-group">
+		<input type="text" placeholder="address" ng-model="address" class="form-control">
+	</div>
+	<button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+
+<div ng-repeat="restaurant in restaurants">
+	<span class="glyphicon glyphicon-thumbs-up" ng-click="wouldEat(restaurant)"></span>
+	{{restaurant.would_eat}}
 	<span style="font-size:20px; margin-left:10px;">
-		<a ng-show="post.link" href="{{post.link}}">{{post.title}}</a>
-	<span ng-hide="post.link">{{post.title}}</span>
+		<a href="#/restaurants/{{index}}">Inspections</a>	
+		{{restaurant.name}}
 		 					
 	</span>
-	
 </div>
-<form ng-submit="addPost()" style="margin-top:30px;"">
-	<h3>Add a new post</h3>
-	<div class="form-group">
-		<input type="text" placeholder="title" name="title" ng-model="title" class="form-control">
-	</div>
-	<div class="form-group">
-		<input type="text" placeholder="link" name="link" ng-model="link" class="form-control">	
-	</div>
-	<button class="btn btn-primary" type="submit">New Post</button>
-</form>

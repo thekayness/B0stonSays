@@ -1,31 +1,35 @@
 angular.module('dontPuke')
 	.controller ('MainCtrl', [
 		'$scope',
-		'posts',
-		function($scope, posts) {
+		'$http',
+		'restaurants',
+		function($scope, $http, restaurants) {
 			$scope.test = 'Hello World!';
-			$scope.posts = posts.posts;
-			$scope.posts.push({
-			  title: $scope.title,
-			  link: $scope.link,
-			  upvotes: 0,
-			  comments: [
-			    {author: 'Joe', body: 'Cool post!', upvotes: 0},
-			    {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
-			  ]
-			});
-			$scope.addPost = function() {
-				if(!$scope.title || $scope.title === '') {return;}
-				$scope.posts.push({
-					title: $scope.title, 
-					upvotes: 0,
-					link: $scope.link
+			$scope.restaurants = restaurants.restaurants;
+			$scope.searchName = function() {
+				if(!$scope.name || $scope.name === '') {return;}
+				return $http({
+					method: 'GET',
+					url: '/namesearch.json',
+					params: {name: $scope.name}
+				}).success(function(data){
+					angular.copy(data, restaurants.restaurants);
+					$scope.name = '';
 				});
-				$scope.title = '';
-				$scope.link = '';
-			};
-			$scope.incrementUpvotes = function(post) {
-				post.upvotes += 1;
+			}
+			$scope.searchAddress = function() {
+				if(!$scope.address || $scope.address === '') {return;}
+				return $http({
+					method: 'GET',
+					url: '/addresssearch.json',
+					params: {address: $scope.address}
+				}).success(function(data){
+					angular.copy(data, restaurants.restaurants);
+					$scope.address = '';
+				});
+			}
+			$scope.wouldEat = function(restaurant) {
+				restaurant.would_eat += 1;
 			};
 		}
 	]);

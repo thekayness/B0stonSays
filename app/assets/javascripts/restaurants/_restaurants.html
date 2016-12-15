@@ -1,19 +1,18 @@
 
 <div class="page-header">
 	<h3>
-		<a ng-show="post.link" href="{{post.link}}">{{post.title}}</a>
-		<span ng-hide="post.link">{{post.title}}</span>
+		<span>{{restaurant.name}}</span>
 	</h3>
 </div>
 
-<div ng-repeat="comment in post.comments | orderBy: '-upvotes'">
-	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
-	{{comment.upvotes}} - by {{comment.author}}
+<div ng-repeat="inspection in restaurant.inspections">
+	<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementAlarm(inspection)"></span>
+	{{inspection.result}} - on {{inspection.result_date}}
 	<span style="font-size:20px; margin-left:10px;">
-		{{comment.body}}
+		{{inspection.comments}}
 	</span>
 </div>
-
+<!-- 
 <form ng-submit="addComment()" style="margin-top:30px;">
   	<h3>Add a new comment</h3>
   	<div class="form-group">
@@ -21,3 +20,4 @@
   		<button type="submit" class="btn btn-primary"></button>
   	</div>
  </form>
+ -->
