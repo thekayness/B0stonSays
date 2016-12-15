@@ -36,6 +36,7 @@ gem 'geocoder'
 gem 'ngannotate-rails'
 gem 'angular-rails-templates'
 gem 'kaminari'
+gem 'angular_rails_csrf'
 
 
 group :development, :test do
