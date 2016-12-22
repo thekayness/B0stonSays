@@ -12,7 +12,17 @@ angular.module('dontPuke', ['ui.router', 'templates'])
 				.state('restaurants', {
 					url: '/restaurants/{id}',
 					templateUrl: 'restaurants/_restaurants.html',
-					controller: 'RestaurantsCtrl'
+					controller: 'RestaurantsCtrl',
+					resolve: {
+					 	post: ['$stateParams', 'restaurants', function($stateParams, restaurants) {
+					 		// console.log($stateParams.id);
+					    	return restaurants.get($stateParams.id);
+					  	}]
+					}
+				})
+				.state('about', {
+					url: '/about',
+					templateUrl: '/about/_about.html'
 				});
 			$urlRouterProvider.otherwise('home');
 		}]);

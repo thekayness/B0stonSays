@@ -3,7 +3,9 @@ class HomeController < ApplicationController
   def index
   end
 
-  def search_near
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    render json: @restaurant
   end
 
   def search_name

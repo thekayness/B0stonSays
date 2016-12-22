@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   get '/namesearch', to: 'home#search_name'
 
   get '/addresssearch', to: 'home#search_address'
+
+  get '/restaurants/:id', to: 'home#show'
+
  
 end
