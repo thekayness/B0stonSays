@@ -1,11 +1,12 @@
 angular.module('dontPuke')
-	.controller ('MainCtrl', [
-		'$scope',
-		'$http',
-		'restaurants',
-		function($scope, $http, restaurants) {
+	.controller ('MainCtrl', ['$scope','$http','restaurants', '$filter',
+		function($scope, $http, restaurants, $filter) {
 			$scope.test = 'Hello World!';
+			$scope.filter = {};
 			$scope.restaurants = restaurants.restaurants;
+			$scope.refilterActive = function() {
+				$scope.filteredRestaurants = $filter('filter')($scope.restaurants, $scope.restaurantActive);
+			};
 			$scope.searchName = function() {
 				if(!$scope.name || $scope.name === '') {return;}
 				return $http({
@@ -15,6 +16,8 @@ angular.module('dontPuke')
 				}).success(function(data){
 					angular.copy(data, restaurants.restaurants);
 					$scope.name = '';
+					console.log($scope.restaurantStatus);
+
 				});
 			}
 			$scope.searchAddress = function() {
@@ -31,5 +34,6 @@ angular.module('dontPuke')
 			$scope.wouldEat = function(restaurant) {
 				restaurant.would_eat += 1;
 			};
+			$scope.refilterActive();
 		}
 	]);

@@ -1,12 +1,14 @@
 
 <div class="page-header">
 	<h1>Don't Puke</h1>
+	<a href="#/about">about</a>
 </div>
 
 <form ng-submit="searchName()" style="margin-top:30px;">
 	<h3>Search By Name</h3>
 	<div class="form-group">
 		<input type="text" placeholder="name" ng-model="name" class="form-control">
+		<input type="checkbox"  ng-model="restaurantStatus"> Check me out (get it??)
 	</div>
 	<button class="btn btn-primary" type="submit">Search</button>
 </form>
@@ -19,8 +21,7 @@
 	<button class="btn btn-primary" type="submit">Search</button>
 </form>
 
-
-<div ng-repeat="restaurant in restaurants">
+<div ng-repeat="restaurant in restaurants | filter:name:restaurantStatus">
 	<span class="glyphicon glyphicon-thumbs-up" ng-click="wouldEat(restaurant)"></span>
 	{{restaurant.would_eat}}
 	<span style="font-size:20px; margin-left:10px;">

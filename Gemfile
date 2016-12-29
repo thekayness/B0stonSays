@@ -37,6 +37,7 @@ gem 'ngannotate-rails'
 gem 'angular-rails-templates'
 gem 'kaminari'
 gem 'angular_rails_csrf'
+gem 'devise', '~> 3.4.0'
 
 
 group :development, :test do

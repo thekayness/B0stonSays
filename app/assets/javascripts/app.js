@@ -20,9 +20,20 @@ angular.module('dontPuke', ['ui.router', 'templates'])
 					  	}]
 					}
 				})
+				.state('login', {
+			      url: '/login',
+			      templateUrl: 'auth/_login.html',
+			      controller: 'AuthCtrl'
+			    })
+			    .state('register', {
+			      url: '/register',
+			      templateUrl: 'auth/_register.html',
+			      controller: 'AuthCtrl'
+			    })
 				.state('about', {
 					url: '/about',
-					templateUrl: '/about/_about.html'
+					templateUrl: 'about/_about.html',
+					controller: 'MainCtrl'
 				});
 			$urlRouterProvider.otherwise('home');
 		}]);
