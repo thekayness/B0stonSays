@@ -4,13 +4,13 @@ angular.module('dontPuke', ['ui.router', 'templates'])
 		'$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider) {
 			$stateProvider
-				.state('home', {
-					url: '/home',
-					templateUrl: 'home/_home.html',
+				.state('search', {
+					url: '/search',
+					templateUrl: 'search/_search.html',
 					controller: 'MainCtrl'
 				})
-				.state('restaurants', {
-					url: '/restaurants/{id}',
+				.state('seach.restaurants', {
+					url: '/search/restaurants/{id}',
 					templateUrl: 'restaurants/_restaurants.html',
 					controller: 'RestaurantsCtrl',
 					resolve: {
