@@ -4,13 +4,9 @@ angular.module('dontPuke', ['ui.router', 'templates'])
 		'$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider) {
 			$stateProvider
-				.state('search', {
-					url: '/search',
-					templateUrl: 'search/_search.html',
-					controller: 'MainCtrl'
-				})
-				.state('seach.restaurants', {
-					url: '/search/restaurants/{id}',
+				
+				.state('restaurants', {
+					url: '/restaurants/{id}',
 					templateUrl: 'restaurants/_restaurants.html',
 					controller: 'RestaurantsCtrl',
 					resolve: {
@@ -34,8 +30,13 @@ angular.module('dontPuke', ['ui.router', 'templates'])
 					url: '/about',
 					templateUrl: 'about/_about.html',
 					controller: 'MainCtrl'
+				})
+				.state('about.search', {
+					url: 'search',
+					templateUrl: 'search/_search.html',
+					controller: 'MainCtrl'
 				});
-			$urlRouterProvider.otherwise('home');
+			$urlRouterProvider.otherwise('about');
 		}]);
 	
 
