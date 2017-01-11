@@ -1,6 +1,22 @@
 
 <div ng-app="dontPuke" ng-controller="MainCtrl">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="collapse navbar-collapse pull-right" ng-controller="NavCtrl">
+    <ul class="nav navbar-nav">
+      <li><ui-sref="home">Home</a></li>
+      <li ng-hide="signedIn()"><ui-sref="login">Log In</a></li>
+      <li ng-hide="signedIn()"><ui-sref="register">Register</a></li>
+      <li ng-show="signedIn()"><a href="#/">{{ user.username }}</a></li>
+      <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+
 	<div class="row">
+
+
 		<div class="col-md-6 col-md-offset-3">
 		<ui-view></ui-view>
 		

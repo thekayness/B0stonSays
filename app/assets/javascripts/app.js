@@ -16,11 +16,19 @@ angular.module('dontPuke', ['ui.router', 'templates', 'Devise'])
 					  	}]
 					}
 				})
+				//show login form template/handle with AuthCtrl
 				.state('login', {
 			      url: '/login',
 			      templateUrl: 'auth/_login.html',
-			      controller: 'AuthCtrl'
+			      controller: 'AuthCtrl',
+			      //if user is logged in, redirect to home using onEnter callback
+			      onEnter: ['$state', 'Auth', function($state, Auth) {
+			        Auth.currentUser().then(function (){
+			          $state.go('home');
+			        })
+			      }]
 			    })
+			    //show registration form template/handle with AuthCtrl
 			    .state('register', {
 			      url: '/register',
 			      templateUrl: 'auth/_register.html',
