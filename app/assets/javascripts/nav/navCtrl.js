@@ -4,8 +4,10 @@ angular.module('dontPuke')
 .controller('NavCtrl', [
 '$scope',
 'Auth',
+'$http',
 //inject Auth service provided by angular-devise
-function($scope, Auth){
+//as well as $http to intercept 401 not authorized
+function($scope, Auth, $http){
 	//expose methods for authentication/signout to $scope
 	$scope.signedIn = Auth.isAuthenticated;
   	$scope.logout = Auth.logout;
@@ -15,6 +17,7 @@ function($scope, Auth){
   	//2. if a user is not authenticated, but the server has a previous session, 
   	//Auth broadcasts a devise:new-session event with current user as arg
   	//3. if server nor Auth has authenticated session, rejected promise is returned
+  	//WHICH I GUESS MAYBE I SHOULD HANDLE?
   	Auth.currentUser().then(function (user){
     	$scope.user = user;
   	});
@@ -32,6 +35,7 @@ function($scope, Auth){
 	$scope.$on('devise:logout', function (e, user){
 	  $scope.user = {};
 	});
+
 }]);
 
 // angular-devise HTTP methods/paths for reference?
