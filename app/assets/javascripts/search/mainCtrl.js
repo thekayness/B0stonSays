@@ -1,7 +1,7 @@
 angular.module('dontPuke')
 	.controller ('MainCtrl', ['$scope','$http','restaurants', '$filter',
 		function($scope, $http, restaurants, $filter) {
-			$scope.test = 'Hello World!';
+			
 			$scope.filter = {};
 			$scope.restaurants = restaurants.restaurants;
 			$scope.refilterActive = function() {
@@ -17,7 +17,7 @@ angular.module('dontPuke')
 					angular.copy(data, restaurants.restaurants);
 					$scope.name = '';
 					console.log($scope.restaurantStatus);
-
+					console.log($scope.user);
 				});
 			}
 			$scope.searchAddress = function() {

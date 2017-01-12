@@ -4,7 +4,7 @@ angular.module('dontPuke', ['ui.router', 'templates', 'Devise'])
 		'$urlRouterProvider',
 		function($stateProvider, $urlRouterProvider) {
 			$stateProvider
-				
+				//show a single restaurant
 				.state('restaurants', {
 					url: '/restaurants/{id}',
 					templateUrl: 'restaurants/_restaurants.html',
@@ -39,17 +39,18 @@ angular.module('dontPuke', ['ui.router', 'templates', 'Devise'])
 			        })
 			      }]
 			    })
-				.state('about', {
-					url: '/about',
-					templateUrl: 'about/_about.html',
+			    //home state obvy
+				.state('home', {
+					url: '/home',
+					templateUrl: 'home/_home.html',
 					controller: 'MainCtrl'
 				})
-				.state('about.search', {
-					url: 'search',
+				//show search form
+				.state('search', {
+					url: '/search',
 					templateUrl: 'search/_search.html',
 					controller: 'MainCtrl'
 				});
-			$urlRouterProvider.otherwise('about');
+			$urlRouterProvider.otherwise('home');
 		}]);
 	
-

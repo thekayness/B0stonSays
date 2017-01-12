@@ -1,6 +1,6 @@
 //controller for authorizing users using angular-devise
 
-angular.module('flapperNews')
+angular.module('dontPuke')
 .controller('AuthCtrl', [
 '$scope',
 '$state',
