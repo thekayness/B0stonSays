@@ -1,29 +1,33 @@
+<div class="container">
+	<form ng-submit="searchName()" style="margin-top:30px;">
+		<h3>Search By Establishment Name</h3>
+		<div class="form-group">
+			<input type="text" placeholder="name" ng-model="name" class="form-control">
+			<input type="checkbox"  ng-model="restaurantStatus"> Check here to filter for only restaurants with an active status.
+		</div>
+		<button class="btn btn-primary" type="submit">Search</button>
+	</form>
 
-<form ng-submit="searchName()" style="margin-top:30px;">
-	<h3>Search By Name</h3>
-	<div class="form-group">
-		<input type="text" placeholder="name" ng-model="name" class="form-control">
-		<input type="checkbox"  ng-model="restaurantStatus"> Check here to filter for only restaurants with an active status.
+
+	<form ng-submit="searchAddress()" style="margin-top:30px;">
+		<h3>Search Near Address</h3>
+		<div class="form-group">
+			<input type="text" placeholder="address" ng-model="address" class="form-control">
+		</div>
+		<button class="btn btn-primary" type="submit">Search</button>
+	</form>
+
+
+	<div ng-repeat="restaurant in restaurants | filter:name:restaurantStatus">
+		<span ng-show="signedIn()" class="glyphicon glyphicon-thumbs-up" ng-click="wouldEat(restaurant)"></span>
+		{{restaurant.would_eat}}
+		<span style="font-size:20px; margin-left:10px;">
+			<a href="#/restaurants/{{restaurant.id}}">Inspections</a>
+	    	
+			{{restaurant.name | titlecase}}
+			 					
+		</span>
+		<div ui-view></div>
 	</div>
-	<button class="btn btn-primary" type="submit">Search</button>
-</form>
 
-<form ng-submit="searchAddress()" style="margin-top:30px;">
-	<h3>Search Near Address</h3>
-	<div class="form-group">
-		<input type="text" placeholder="address" ng-model="address" class="form-control">
-	</div>
-	<button class="btn btn-primary" type="submit">Search</button>
-</form>
-
-<div ng-repeat="restaurant in restaurants | filter:name:restaurantStatus">
-	<span ng-show="signedIn()" class="glyphicon glyphicon-thumbs-up" ng-click="wouldEat(restaurant)"></span>
-	{{restaurant.would_eat}}
-	<span style="font-size:20px; margin-left:10px;">
-		<a href="#/restaurants/{{restaurant.id}}">Inspections</a>
-    	
-		{{restaurant.name}}
-		 					
-	</span>
-	<div ui-view></div>
-</div>
+</div> <!-- container -->

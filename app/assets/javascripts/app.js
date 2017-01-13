@@ -45,6 +45,11 @@ angular.module('dontPuke', ['ui.router', 'templates', 'Devise'])
 					templateUrl: 'home/_home.html',
 					controller: 'MainCtrl'
 				})
+				.state('home.about', {
+					url: '/about',
+					templateUrl: 'home/_about.html',
+					controller: 'MainCtrl'
+				})
 				//show search form
 				.state('search', {
 					url: '/search',

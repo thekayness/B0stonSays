@@ -35,5 +35,6 @@ angular.module('dontPuke')
 				restaurant.would_eat += 1;
 			};
 			$scope.refilterActive();
+			
 		}
 	]);
