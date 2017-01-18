@@ -18,6 +18,13 @@ class HomeController < ApplicationController
     render json: @restaurants
   end
 
+  def flag
+    @inspection = Restaurant.find(params[:id])
+    @inspection.increment!(:flags)
+    render json: @inspection
+  end
+
+  private
   def restaurant_params
     params.require(:restaurant).permit(:would_eat)
   end

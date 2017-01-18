@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   get '/restaurants/:id', to: 'home#show'
 
+  post '/inspections/:id', to: 'home#flag'
  
 end

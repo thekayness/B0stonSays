@@ -1,16 +1,36 @@
+<!-- Restaurant show page -->
 
-<div class="page-header">
-	<h3>
-		<span>{{restaurant.name}}</span>
-	</h3>
-</div>
+<div class="container">
+	<div class="page-header">
+		<h3>Results for:
+			<span>{{restaurant.name | titlecase}}</span>
+		</h3>
+		<p></p>
+	</div>
 
-<div ng-repeat="inspection in restaurant.inspections">
-	<span class="glyphicon glyphicon-thumbs-up" ng-click=""></span>
-	{{inspection.result}} - on {{inspection.result_date}}
-	<span style="font-size:20px; margin-left:10px;">
-		{{inspection.comments}}
-	</span>
+	<ul class="list-group">
+	  <li class="list-group-item">
+	    <span class="badge">{{restaurant.inspections.length}}</span>
+	    Total number of reports:
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{mostRecentReport}}</span>
+	    Date of most recent report:
+	  </li>
+	  <li class="list-group-item">
+	    <span class="badge">{{criticals.length}}</span>
+	    Number of Critical Failures:
+	  </li>
+	</ul>
+
+	<div ng-repeat="inspection in restaurant.inspections | orderBy: 'result_date'">
+		<span ng-click="incrementFlags(inspection)" class="glyphicon glyphicon-cutlery" ng-click=""></span>
+		<span style="font-size:20px; margin-left:10px;">
+		Flags: {{inspection.flags}}
+		Inspection result: {{inspection.result}} - on {{inspection.result_date}}
+			Comments: {{inspection.comments}}
+		</span>
+	</div>
 </div>
 <!-- 
 <form ng-submit="addComment()" style="margin-top:30px;">

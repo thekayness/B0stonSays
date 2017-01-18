@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229030700) do
+ActiveRecord::Schema.define(version: 20170116154431) do
 
   create_table "_alter0_restaurants", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20161229030700) do
     t.text    "viol_desc"
     t.string  "comments"
     t.string  "viol_date"
+    t.integer "flags",          default: 0
     t.index ["restaurant_id"], name: "index_inspections_on_restaurant_id"
   end
 
