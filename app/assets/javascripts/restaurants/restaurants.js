@@ -1,5 +1,5 @@
 angular.module('dontPuke')
-	.factory('restaurants', ['$http', function($http) {
+	.factory('restaurants', ['$http', 'Auth', function($http, Auth) {
 		var restaurantsObj = {
 			restaurants: []
 		};
@@ -13,6 +13,14 @@ angular.module('dontPuke')
 		  	angular.copy(data, restaurantsObj.restaurants);
 		  });
 		};
+
+		restaurantsObj.flag = function(inspection) {
+		  return $http.put('/inspections/' + inspection.id + '.json')
+		    .success(function(data){
+		      inspection.flags += 1;
+		    });
+		};
 		// console.log(restaurantsObj);
 		return restaurantsObj;
+		
 	}]);

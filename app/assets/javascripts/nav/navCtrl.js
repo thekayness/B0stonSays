@@ -26,6 +26,7 @@ function($scope, Auth, $http){
   	//event listeners for registration/sign in/out events broadcast by Auth
 	$scope.$on('devise:new-registration', function (e, user){
 	  $scope.user = user;
+	  console.log(e);
 	});
 
 	$scope.$on('devise:login', function (e, user){

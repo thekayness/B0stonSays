@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
   end
 
@@ -19,7 +18,7 @@ class HomeController < ApplicationController
   end
 
   def flag
-    @inspection = Restaurant.find(params[:id])
+    @inspection = Inspection.find(params[:id])
     @inspection.increment!(:flags)
     render json: @inspection
   end
